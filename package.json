@@ -1,0 +1,45 @@
+{
+  "name": "snap-in",
+  "version": "0.1.0",
+  "main": "lib/index.js",
+  "module": "src/index.js",
+  "repository": "git@github.com:fnpen/snap-in.git",
+  "author": "Ilya <ilya@fnpen.com>",
+  "license": "MIT",
+  "files": [
+    "lib",
+    "src",
+    "index.d.ts"
+  ],
+  "scripts": {
+    "clean": "rimraf lib coverage",
+    "lint": "eslint src",
+    "format": "prettier --write \"{src}/**/*.{js,ts}\" index.d.ts \"**/*.md\"",
+    "format:check": "prettier --list-different \"{src}/**/*.{js,ts}\" index.d.ts \"**/*.md\"",
+    "build": "babel src -d lib --ignore '**/*.test.js'",
+    "test": "jest",
+    "test:watch": "npm test -- --watch",
+    "test:cov": "npm test -- --coverage",
+    "start": "npm run test:watch"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^23.6.0",
+    "eslint": "^5.12.1",
+    "eslint-config-recommended": "^4.0.0",
+    "jest": "^23.6.0",
+    "prettier": "^1.16.1",
+    "regenerator-runtime": "^0.13.1",
+    "rimraf": "^2.6.3"
+  },
+  "sideEffects": false,
+  "jest": {
+    "coverageDirectory": "coverage",
+    "testEnvironment": "node",
+    "testRegex": "(/src/.*\\.test\\.js)$"
+  }
+}
